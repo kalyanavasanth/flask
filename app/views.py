@@ -23,7 +23,7 @@ def login():
         t_username=form.UserName.data
         t_email=form.Email.data
         t_password=form.Password.data
-        u = User(name='aaa',username='bbb',email='ccc',password='ddd').save()
+        u = User(name=t_name,username=t_username,email=t_email,password=t_password)
         db.session.add(u)
         db.session.commit()
         #con = sql.connect("app.db")
