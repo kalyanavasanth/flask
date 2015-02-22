@@ -1,11 +1,18 @@
 from app import db
+from flask.ext.mongoengine.wtf import model_form
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), index=True, unique=False)
-    username = db.Column(db.String(64), index=True, unique=True)
-    email = db.Column(db.String(120), index=True, unique=True)
-    password = db.Column(db.String(15), index=True, unique=False)
-
-    def __repr__(self):
-        return '<User %r>' % (self.username)
+class User(db.Document):
+    name = db.StringField(required=True)
+    username = db.StringField(max_length=50)
+    email = db.StringField(max_length=50)
+    password = db.StringField(max_length=50)
+    
+class KeysTable(db.Document):
+    name = db.StringField(required=True)
+    username = db.StringField(max_length=50)
+    email = db.StringField(max_length=50)
+    password = db.StringField(max_length=50)
+    key = db.StringField(max_length=25)
+    
+    #def __repr__(self):
+    #    return '<User %r>' % (self.username)

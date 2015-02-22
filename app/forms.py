@@ -8,3 +8,7 @@ class LoginForm(Form):
     Email= StringField('Email', validators=[DataRequired()])
     Password=PasswordField('Password',validators=[DataRequired()])
     ConfirmPassword=PasswordField('ConfirmPassword',validators=[DataRequired()])
+    
+class LoginPage(Form):
+    User=StringField('Name', validators=[DataRequired()])
+    Passcode=PasswordField('Password',validators=[DataRequired()])
